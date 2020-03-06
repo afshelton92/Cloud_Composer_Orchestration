@@ -4,3 +4,4 @@ Apache Airflow is an excellent orchestration and scheduling tool, but having to 
 
 This example takes the above logic, except the Cloud Function script triggers a BigQuery query. To make the query more dynamic, a dependencies file in the Cloud Composer dag directory passes a table name that the Cloud Function uses in the BQ query.
 
+![Diagram](Composer_Function_Flow.png)
