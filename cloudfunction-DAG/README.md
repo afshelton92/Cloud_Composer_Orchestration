@@ -1,4 +1,4 @@
-# Flow from Composer to Function to BQ
+# Triggering Cloud Functions (BQ query) from Composer
 
 Apache Airflow is an excellent orchestration and scheduling tool, but having to maintain a GCP Cloud Composer environment with the resources to run complex processes can be costly. Additionally, rewriting a script to create a DAG can overcomplicate the code. The outlined approach takes a script that would easily run locally, but instead embeds it in an HTTP trigger Cloud Function. From there, the Airflow DAG only needs to send an HTTP request to the function to run it. 
 
