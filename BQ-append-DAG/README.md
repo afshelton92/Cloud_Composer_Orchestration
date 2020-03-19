@@ -10,3 +10,4 @@ Step 2) Create Cloud Composer Airflow DAG that uses the BigQueryOperator to SELE
 This single DAG can be used for multiple tables using a For Loop. Just make sure that each table has it's own task_id. 
 
 
+![Diagram](BQ_Composer.png)
