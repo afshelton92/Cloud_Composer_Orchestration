@@ -6,6 +6,7 @@ The following example assumes that enterprise-level datasets are shared to minim
 
 Step 1) Define the BigQuery View definitions.
 Consider how frequently new records need to be appended. If possible, use the WHERE clause in the view definition to simplify the orchestration and keep the view small. Ex: The job needs to run daily, so the View's WHERE clause is "date" = current day, etc.. OR consider using the view's "Last modified date" in the WHERE clause ("date" > "last modified date") 
+
 Step 2) Create Cloud Composer Airflow DAG that uses the BigQueryOperator to SELECT * FROM "the view" and append to the destination table. 
 This single DAG can be used for multiple tables using a For Loop. Just make sure that each table has it's own task_id. 
 
