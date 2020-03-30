@@ -23,7 +23,7 @@ dag = DAG('run_DF_file',
   )
 t1 = BashOperator(
   task_id='copy_files',
-  bash_command='gsutil -m cp gs://totemic-splicer-272114-df-test/DF_Jobs/*.py /home/airflow/gcs/data/',
+  bash_command='gsutil -m cp [gs path to py file] /home/airflow/gcs/data/',
   dag=dag)
 
 
@@ -33,14 +33,14 @@ task_id= 'dataflow_runner',
 py_file = '/home/airflow/gcs/data/main.py',
 gcp_conn_id='google_cloud_default',
 dataflow_default_options={
-    "project": "totemic-splicer-272114",
+    "project": "[project_id]",
     "job_name": 'my_job',
-    "temp_location": "gs://totemic-splicer-272114-df-test/temp",
-    "staging_location": "gs://totemic-splicer-272114-df-test/staging"
+    "temp_location": "[gs path to temp storage folder]",
+    "staging_location": "[gs path to staging storage folder]"
     },
 options={
-    'input': "gs://totemic-splicer-272114-df-test/Input_Files/tf_test.txt",
-    'output': "gs://totemic-splicer-272114-df-test/Output_Files/tf_test.txt"
+    'input': "[gs path to input data]",
+    'output': "[gs path for output data]"
     },
 dag=dag
 )
