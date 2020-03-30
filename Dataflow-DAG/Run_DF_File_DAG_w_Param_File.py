@@ -25,7 +25,7 @@ dag = DAG('run_DF_file_params',
 #add files to DAG directory
 t1 = BashOperator(
   task_id='copy_files',
-  bash_command='gsutil -m cp gs://totemic-splicer-272114-df-test/DF_Jobs/*.py /home/airflow/gcs/data/',
+  bash_command='gsutil -m cp [gs path to py file] /home/airflow/gcs/data/',
   dag=dag)
 
 
